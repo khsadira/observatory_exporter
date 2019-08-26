@@ -25,7 +25,7 @@ module:
 
 build: 
 	@echo ">> building binaries"
-	@$(GO) build
+	@$(GO) build -o $(NAME)
 
 docker: all
 	@echo ">> building docker image"
