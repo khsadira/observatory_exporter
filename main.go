@@ -17,8 +17,8 @@ const (
 	typeGrade = "# TYPE observatory_http_grade gauge"
 	helpScore = "# HELP observatory_http_score Http score"
 	typeScore = "# TYPE observatory_http_score gauge"
-	helpTest  = "# HELP observatory_http_test_passed Number of test passed"
-	typeTest  = "# TYPE observatory_http_test_passed gauge"
+	helpTest  = "# HELP observatory_http_tests_passed Number of test passed"
+	typeTest  = "# TYPE observatory_http_tests_passed gauge"
 )
 
 func main() {
