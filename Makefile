@@ -1,3 +1,4 @@
+NAME	:=	http-observatory_exporter
 GO		:=	go
 FMT		=	gofmt
 pkgs	=	$(shell env GO111MODULE=on $(GO) list -m)
@@ -6,7 +7,7 @@ FILE	=	main.go\
 			metricsPage.go\
 			collector.go\
 
-DOCKER_IMAGE_NAME       ?= exporter_observatory
+DOCKER_IMAGE_NAME       ?= http-observatory_exporter
 
 all: format build
 
@@ -20,7 +21,7 @@ format:
 
 module:
 	@echo ">> creating module"
-	@$(GO) mod init exporter_observatory
+	@$(GO) mod init $(NAME)
 
 build: 
 	@echo ">> building binaries"
@@ -31,7 +32,7 @@ docker: all
 	@docker build -t $(DOCKER_IMAGE_NAME) .
 
 fclean:
-	rm -rf exporter_observatory go.sum go.mod
+	rm -rf $(NAME) go.sum go.mod
 
 re: fclean module all test
 

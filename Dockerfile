@@ -19,10 +19,10 @@ WORKDIR /app
 COPY . .
 
 # Build the Go app
-RUN go build -o exporter_observatory .
+RUN go build -o http-observatory_exporter .
 
 # Expose port 8080 to the outside world
 EXPOSE 9229
 
 # Command to run the executable
-CMD ["./exporter_observatory"]
+CMD ["./http-observatory_exporter"]

@@ -22,15 +22,15 @@ const (
 )
 
 func main() {
-	http.HandleFunc("/metrics/", metricsPage)
+	http.HandleFunc("/http-observatory/", metricsPage)
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte(`<html>
 <head><title>Observatory Exporter</title></head>
 			 <body>
 			 <h1>Observatory Exporter</h1>
-			 <p><a href='/metrics/'>Metrics</a></p>
+			 <p><a href='/http-observatory/metrics/'>http observatory metrics</a></p>
 			 </body>
 			 </html>`))
 	})
-	log.Fatal(http.ListenAndServe(":9229", nil))
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }

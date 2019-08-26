@@ -46,7 +46,7 @@ func getJSONID(target string) ([]byte, error) {
 	buf, _ := ioutil.ReadAll(resp.Body)
 	json.Unmarshal(buf, &scan)
 	if scan.State != "FINISHED" {
-		time.Sleep(1 * time.Second)
+		time.Sleep(time.Second / 2)
 		return getJSONID(target)
 	}
 	return buf, err
