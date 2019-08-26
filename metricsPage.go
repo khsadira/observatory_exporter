@@ -34,9 +34,9 @@ func retAnswer(metrics []Metrics) string {
 	var test string
 
 	for _, metric := range metrics {
-		grade += fmt.Sprintf("exporter_grade{host=%s} %d\n", metric.Target, gradeLetterToInt(metric.Grade))
-		score += fmt.Sprintf("exporter_score{host=%s} %d\n", metric.Target, metric.Score)
-		test += fmt.Sprintf("exporter_test{host=%s} %d\n", metric.Target, metric.TestPass)
+		grade += fmt.Sprintf("observatory_http_grade{host=%s} %d\n", metric.Target, gradeLetterToInt(metric.Grade))
+		score += fmt.Sprintf("observatory_http_score{host=%s} %d\n", metric.Target, metric.Score)
+		test += fmt.Sprintf("observatory_http_test{host=%s} %d\n", metric.Target, metric.TestPass)
 	}
 
 	resp := fmt.Sprintf("%s\n%s\n%s%s\n%s\n%s%s\n%s\n%s", helpGrade, typeGrade, grade, helpScore, typeScore, score, helpTest, typeTest, test)
