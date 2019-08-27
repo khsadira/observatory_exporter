@@ -17,10 +17,10 @@ WORKDIR /app
 #RUN go mod download
 
 # Copy the source from the current directory to the Working Directory inside the container
-COPY . .
+COPY . /app
 
 # Build the Go app
-RUN go build -o http-observatory_exporter .
+RUN make /app
 
 # Expose port 9230 to the outside world
 EXPOSE 9230
