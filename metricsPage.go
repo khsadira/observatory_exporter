@@ -14,13 +14,12 @@ func metricsPage(w http.ResponseWriter, r *http.Request) {
 	var metrics []Metrics
 	hosts, ok := r.URL.Query()["host"]
 
-	if !ok || len(hosts[0]) < 0 {
+	if !ok || len(hosts) < 0 {
 		log.Println("Url Param 'host' is missing")
 		resp = "No host query found"
 	} else {
-		targets := strings.Split(hosts[0], ",")
-		targets = reworkURL(targets)
-		for _, target := range targets {
+		hosts = reworkURL(hosts)
+		for _, target := range hosts {
 			metrics = append(metrics, newMetrics(target))
 		}
 		resp = retAnswer(metrics)
