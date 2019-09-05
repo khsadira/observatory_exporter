@@ -16,5 +16,4 @@ Installation: (with docker)
 Then you can use it easily by using your navigator at  localhost:9230/http-observatory/metrics/host=... or `ip`:9230/metrics/host=.... if you want to ask from another computer
 If you want to do multiple host you can separe them by a "," : "host=HOST1,HOST2,HOST3,HOST4..."
 
-
 Khan S.
