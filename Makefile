@@ -1,13 +1,14 @@
-NAME	:=	http-observatory_exporter
+NAME	:=	observatory_exporter
 GO		:=	go
 FMT		=	gofmt
 pkgs	=	$(shell env GO111MODULE=on $(GO) list -m)
 
 FILE	=	main.go\
-			metricsPage.go\
-			collector.go\
+			metrics_page.go\
+			collector_tls.go\
+			collector_http.go\
 
-DOCKER_IMAGE_NAME       ?= http-observatory_exporter
+DOCKER_IMAGE_NAME       ?= observatory_exporter
 
 all: format build
 

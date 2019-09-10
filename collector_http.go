@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-func newMetrics(target string) Metrics {
+func newHTTPMetrics(target string) Metrics {
 	var metrics Metrics
 
 	json, err := getJSONID(target)
