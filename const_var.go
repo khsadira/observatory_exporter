@@ -17,7 +17,7 @@ const (
 	typetrust    = typeTLS + "_valid gauge"
 	helplevel    = helpTLS + "_level Defines the Mozilla SSL compatibility level for given domain (0 = old, 1 = bad, 2 = non compliant, 3 = intermediate, 4 = modern)"
 	typelevel    = typeTLS + "_level gauge"
-	helptlsgrade = helpTLS + "_garde Grade representation of score, A=4, B=3, C=2, D=1, F=0"
+	helptlsgrade = helpTLS + "_grade Grade representation of score, A=4, B=3, C=2, D=1, F=0"
 	typetlsgrade = typeTLS + "_grade gauge"
 	helptlsscore = helpTLS + "_score Defines the score given by Mozilla Observatory's mozillaGradingWorker (0...100)"
 	typetlsscore = typeTLS + "_score gauge"

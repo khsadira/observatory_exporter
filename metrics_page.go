@@ -41,18 +41,18 @@ func retAnswer(metrics []Metrics) string {
 	var start string
 
 	for _, metric := range metrics {
-		grade += fmt.Sprintf("observatory_http_grade{host=\"%s\"} %d", metric.Target, gradeLetterToInt(metric.Grade))
-		score += fmt.Sprintf("observatory_http_score{host=\"%s\"} %d", metric.Target, metric.Score)
-		test += fmt.Sprintf("observatory_http_tests_passed{host=\"%s\"} %d", metric.Target, metric.TestPass)
+		grade += fmt.Sprintf("observatory_http_grade{host=\"%s\"} %v", metric.Target, gradeLetterToInt(metric.Grade))
+		score += fmt.Sprintf("observatory_http_score{host=\"%s\"} %v", metric.Target, metric.Score)
+		test += fmt.Sprintf("observatory_http_tests_passed{host=\"%s\"} %v", metric.Target, metric.TestPass)
 
-		tlse += fmt.Sprintf("observatory_tls_enable{host=\"%s\"} %f", metric.Target, metric.TlsEnable)
-		trust += fmt.Sprintf("observatory_tls_is_valid{host=\"%s\"} %f", metric.Target, metric.TlsIsTrust)
-		level += fmt.Sprintf("observatory_tls_level{host=\"%s\"} %f", metric.Target, metric.TlsLevel)
-		tlsgrade += fmt.Sprintf("observatory_tls_grade{host=\"%s\"} %f", metric.Target, metric.TlsLevel)
-		tlsscore += fmt.Sprintf("observatory_tls_score{host=\"%s\"} %f", metric.Target, metric.TlsScore)
+		tlse += fmt.Sprintf("observatory_tls_enable{host=\"%s\"} %v", metric.Target, metric.TlsEnable)
+		trust += fmt.Sprintf("observatory_tls_is_valid{host=\"%s\"} %v", metric.Target, metric.TlsIsTrust)
+		level += fmt.Sprintf("observatory_tls_level{host=\"%s\"} %v", metric.Target, metric.TlsLevel)
+		tlsgrade += fmt.Sprintf("observatory_tls_grade{host=\"%s\"} %v", metric.Target, metric.TlsLevel)
+		tlsscore += fmt.Sprintf("observatory_tls_score{host=\"%s\"} %v", metric.Target, metric.TlsScore)
 
-		expire += fmt.Sprintf("observatory_cert_expire{host=\"%s\"} %f", metric.Target, metric.CertExpire)
-		start += fmt.Sprintf("observatory_cert_start{host=\"%s\"} %f", metric.Target, metric.CertStart)
+		expire += fmt.Sprintf("observatory_cert_expire{host=\"%s\"} %v", metric.Target, metric.CertExpire)
+		start += fmt.Sprintf("observatory_cert_start{host=\"%s\"} %v", metric.Target, metric.CertStart)
 	}
 
 	resp := fmt.Sprintf("%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n", helpGrade, typeGrade, grade, helpScore, typeScore, score, helpTest, typeTest, test)
