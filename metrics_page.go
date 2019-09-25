@@ -41,9 +41,9 @@ func retAnswer(metrics []Metrics) string {
 	var start string
 
 	for _, metric := range metrics {
-		grade += fmt.Sprintf("observatory_http_grade{host=\"%s\"} %v", metric.Target, gradeLetterToInt(metric.Grade))
-		score += fmt.Sprintf("observatory_http_score{host=\"%s\"} %v", metric.Target, metric.Score)
-		test += fmt.Sprintf("observatory_http_tests_passed{host=\"%s\"} %v", metric.Target, metric.TestPass)
+		grade += fmt.Sprintf("observatory__grade{host=\"%s\"} %v", metric.Target, gradeLetterToInt(metric.Grade))
+		score += fmt.Sprintf("observatory__score{host=\"%s\"} %v", metric.Target, metric.Score)
+		test += fmt.Sprintf("observatory__tests_passed{host=\"%s\"} %v", metric.Target, metric.TestPass)
 
 		tlse += fmt.Sprintf("observatory_tls_enable{host=\"%s\"} %v", metric.Target, metric.TlsEnable)
 		trust += fmt.Sprintf("observatory_tls_is_valid{host=\"%s\"} %v", metric.Target, metric.TlsIsTrust)
