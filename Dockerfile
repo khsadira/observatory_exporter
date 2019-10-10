@@ -3,7 +3,7 @@ FROM golang:latest as builder
 LABEL maintainer="Khan Sadirac <khan.sadirac42@gmail.com"
 WORKDIR /app
 COPY . .
-RUN go build -o observatory_exporter
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o observatory_exporter .
 
 # main container
 FROM alpine:latest
